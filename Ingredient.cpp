@@ -23,5 +23,5 @@ string Ingredient::getAmount(){
 
 
 void Ingredient::viewIngredientInfo(){
-    cout << "\nName: " << name << "\nAmount: " << amount  << endl; 
+    cout << name << " " << amount  << endl; 
 };

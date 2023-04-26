@@ -13,11 +13,11 @@ private:
     int curIngrIndex; 
     int curInstIndex;
     const int capacity = 30;
-    Ingredient* ingredients = new Ingredient[capacity]; 
-    string* instructions = new string[capacity]; 
+    Ingredient* ingredients; 
+    string* instructions; 
 public:
     Recipe(); 
-    Recipe(string name, int curIngrIndex, int curInstIndex, Ingredient* ingredients, string* instructions ); 
+    Recipe(string name ); 
     ~Recipe(); 
     string getName();
     void viewIngredients();

@@ -4,16 +4,16 @@
 #include <iostream>
 #include <string>
 using namespace std; 
+#include <vector>
 
 class RecipeBook{
 private: 
     int curRecipeInd; 
-    const int capacity = 30; 
-    Recipe* recipes; 
+    vector<Recipe> recipes; 
 public:
     RecipeBook();
     ~RecipeBook(); 
     void viewAllRecipes();
-    void viewRecipe(Recipe recipe);
-    void addRecipe(Recipe recipe); 
+    void viewRecipe(int index);
+    void addRecipe(Recipe newRecipe); 
 }; 

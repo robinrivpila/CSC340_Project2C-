@@ -12,13 +12,10 @@ Recipe::Recipe(string name){
     this->name = name; 
     this->curIngrIndex = 0; 
     this->curInstIndex = 0;
-    ingredients = new Ingredient[capacity];
-    instructions =  new string[capacity]; 
 }
 
 Recipe::~Recipe(){
-    delete ingredients;
-    delete instructions; 
+    
 }
 
 string Recipe::getName(){
@@ -26,31 +23,34 @@ string Recipe::getName(){
 }
 
 void Recipe::viewIngredients(){
-    cout << "Ingredients List: " << endl; 
-    for(int i = 0; i < curIngrIndex; i++){
-        cout << i +1 << ". "; 
-        ingredients[i].viewIngredientInfo(); 
+    if(ingredients.size() > 0){   
+        cout << "Ingredients List: " << endl; 
+        int counter = 1 ; 
+        for(Ingredient ingredient:ingredients){
+            cout << counter << ". "; 
+            ingredient.viewIngredientInfo(); 
+            counter++; 
+        }
     }
 }
 
 void Recipe::viewInstructions(){
     cout << "Instructions: " << endl; 
-    for(int i = 0; i < curInstIndex; i++){
-        cout << "Step " << i +1 << ": " << instructions[i] << endl; 
+    int counter = 1; 
+    for(auto i = instructions.begin(); i !=instructions.end(); i++){
+        cout << "Step " << counter << ": " << *i << endl;
+        counter++; 
     }
 }
 void Recipe::addIngredient(Ingredient newIngredient){
-    if(curIngrIndex < capacity){
-        ingredients[curIngrIndex] = newIngredient;
+        ingredients.push_back(newIngredient); 
         curIngrIndex++;
-    }
+    
 }
 
 void Recipe::addInstruction(string newInstruction){
-    if(curInstIndex < capacity){
-        instructions[curInstIndex] = newInstruction;
+        instructions.push_back(newInstruction); 
         curInstIndex++;
-    }
 }
 
 
